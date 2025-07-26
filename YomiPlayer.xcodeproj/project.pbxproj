@@ -8,18 +8,52 @@
 
 /* Begin PBXFileReference section */
 		913722702E32740F008DFDD5 /* YomiPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YomiPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacYomiPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		91F9E5642E33EFC800088CF1 /* Exceptions for "YomiPlayer" folder in "MacYomiPlayer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Resources/Assets.xcassets,
+			);
+			target = 91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */;
+		};
+		91F9E5972E34C37500088CF1 /* Exceptions for "YomiPlayer" folder in "YomiPlayer" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9137226F2E32740F008DFDD5 /* YomiPlayer */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		913722722E32740F008DFDD5 /* YomiPlayer */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				91F9E5972E34C37500088CF1 /* Exceptions for "YomiPlayer" folder in "YomiPlayer" target */,
+				91F9E5642E33EFC800088CF1 /* Exceptions for "YomiPlayer" folder in "MacYomiPlayer" target */,
+			);
 			path = YomiPlayer;
+			sourceTree = "<group>";
+		};
+		91F9E5512E33EE2200088CF1 /* MacYomiPlayer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MacYomiPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		9137226D2E32740F008DFDD5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91F9E54D2E33EE2200088CF1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				913722722E32740F008DFDD5 /* YomiPlayer */,
+				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
 				913722712E32740F008DFDD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				913722702E32740F008DFDD5 /* YomiPlayer.app */,
+				91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +106,28 @@
 			productReference = 913722702E32740F008DFDD5 /* YomiPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
+		91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91F9E5592E33EE2400088CF1 /* Build configuration list for PBXNativeTarget "MacYomiPlayer" */;
+			buildPhases = (
+				91F9E54C2E33EE2200088CF1 /* Sources */,
+				91F9E54D2E33EE2200088CF1 /* Frameworks */,
+				91F9E54E2E33EE2200088CF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
+			);
+			name = MacYomiPlayer;
+			packageProductDependencies = (
+			);
+			productName = MacYomiPlayer;
+			productReference = 91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -81,6 +139,9 @@
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					9137226F2E32740F008DFDD5 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					91F9E54F2E33EE2200088CF1 = {
 						CreatedOnToolsVersion = 16.4;
 					};
 				};
@@ -100,6 +161,7 @@
 			projectRoot = "";
 			targets = (
 				9137226F2E32740F008DFDD5 /* YomiPlayer */,
+				91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -112,10 +174,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91F9E54E2E33EE2200088CF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9137226C2E32740F008DFDD5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91F9E54C2E33EE2200088CF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,9 +329,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C3T24W9LXR;
+				DEVELOPMENT_TEAM = AZAC5WD43N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YomiPlayer/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -268,6 +346,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.YomiPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -281,9 +364,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C3T24W9LXR;
+				DEVELOPMENT_TEAM = AZAC5WD43N;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = YomiPlayer/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -296,9 +381,74 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.YomiPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		91F9E55A2E33EE2400088CF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacYomiPlayer/MacYomiPlayer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZAC5WD43N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.MacYomiPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		91F9E55B2E33EE2400088CF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MacYomiPlayer/MacYomiPlayer.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = AZAC5WD43N;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.MacYomiPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -319,6 +469,15 @@
 			buildConfigurations = (
 				9137227C2E327411008DFDD5 /* Debug */,
 				9137227D2E327411008DFDD5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91F9E5592E33EE2400088CF1 /* Build configuration list for PBXNativeTarget "MacYomiPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91F9E55A2E33EE2400088CF1 /* Debug */,
+				91F9E55B2E33EE2400088CF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
