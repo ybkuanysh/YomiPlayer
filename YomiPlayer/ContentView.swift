@@ -7,14 +7,22 @@
 
 import AVKit
 import SwiftUI
+import os
+
+private let logger = Logger.ui
 
 struct ContentView: View {
-
+    private let manager = FileManager.default
+    private var documentDir: URL? {
+        manager.urls(for: .documentDirectory, in: .userDomainMask).first
+    }
+    
     var body: some View {
-        NavigationSplitView {
-            VideoLibraryView()
-        } detail: {
-            Text("Main app view")
+        NavigationStack {
+            VideoLibraryView(dto: .init(parent: documentDir!.path(), name: ""))
+                .navigationDestination(for: DirectoryListingDTO.self) {
+                    dto in VideoLibraryView(dto: dto)
+                }
         }
     }
 }

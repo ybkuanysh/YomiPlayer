@@ -13,19 +13,15 @@ private let logger = Logger.directory
 
 class VideoLibraryViewModel: ObservableObject {
     @Published var entries: [DirectoryEntry] = []
-    
-    let dto: DirectoryListingDTO
-    let root: String
-    
+
     private let manager = FileManager.default
     private var folderObserver: FolderObserver?
     private var documentDir: URL? {
         manager.urls(for: .documentDirectory, in: .userDomainMask).first
     }
 
-    init(dto: DirectoryListingDTO) {
-        self.dto = dto
-        
+    init() {
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(reloadLibrary),
@@ -43,8 +39,6 @@ class VideoLibraryViewModel: ObservableObject {
                 self?.loadLibrary()
             }
         }
-        
-        root = dto.name == "/" ? "" : dto.parent + "/"
     }
 
     deinit {
@@ -61,10 +55,10 @@ class VideoLibraryViewModel: ObservableObject {
                 logger.error("❌ Failed to find documentDirectory")
                 return
             }
-            let path = root + dto.name
             let contents = try manager.contentsOfDirectory(
-                atPath: path
+                atPath: baseURL.path()
             )
+
             let items = contents.map {
                 var isDir: ObjCBool = false
                 manager.fileExists(

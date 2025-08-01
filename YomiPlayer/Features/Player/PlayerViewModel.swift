@@ -14,9 +14,8 @@ class PlayerViewModel: ObservableObject {
     @Published var duration: CMTime
     private var timeObserverToken: Any?
 
-    init(fileName: String) {
-        let url = Bundle.main.url(forResource: fileName, withExtension: "mp4")
-        self.player = AVPlayer(playerItem: AVPlayerItem(url: url!))
+    init(fileURL: URL) {
+        self.player = AVPlayer(playerItem: AVPlayerItem(url: fileURL))
         self.currentTime = player.currentTime()
         self.duration = CMTime.zero
         addPeriodicTimeObserver()

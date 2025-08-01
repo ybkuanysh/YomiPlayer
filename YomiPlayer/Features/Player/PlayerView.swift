@@ -9,9 +9,12 @@ import SwiftUI
 
 struct PlayerView: View {
     @ObservedObject var model: PlayerViewModel
+    let fileURL: URL
 
-    init() {
-        model = PlayerViewModel(fileName: "video")
+    init(_ fileURL: URL) {
+        self.fileURL = fileURL
+        model = PlayerViewModel(fileURL: fileURL)
+        print("Selected Video file path: \(fileURL.path())")
     }
 
     var body: some View {
@@ -43,5 +46,9 @@ struct PlayerView: View {
 }
 
 #Preview {
-    PlayerView()
+    let previewFileURL = Bundle.main.url(
+        forResource: "video",
+        withExtension: "mp4"
+    )
+    PlayerView(previewFileURL!)
 }
