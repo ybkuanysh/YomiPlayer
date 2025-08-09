@@ -6,19 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		91E58F262E4123D500872EAC /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = 91E58F252E4123D500872EAC /* DITranquillity */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		913722702E32740F008DFDD5 /* YomiPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YomiPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacYomiPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		91F9E5642E33EFC800088CF1 /* Exceptions for "YomiPlayer" folder in "MacYomiPlayer" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Resources/Assets.xcassets,
-			);
-			target = 91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */;
-		};
 		91F9E5972E34C37500088CF1 /* Exceptions for "YomiPlayer" folder in "YomiPlayer" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -33,14 +29,8 @@
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				91F9E5972E34C37500088CF1 /* Exceptions for "YomiPlayer" folder in "YomiPlayer" target */,
-				91F9E5642E33EFC800088CF1 /* Exceptions for "YomiPlayer" folder in "MacYomiPlayer" target */,
 			);
 			path = YomiPlayer;
-			sourceTree = "<group>";
-		};
-		91F9E5512E33EE2200088CF1 /* MacYomiPlayer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MacYomiPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -50,13 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91F9E54D2E33EE2200088CF1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				91E58F262E4123D500872EAC /* DITranquillity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				913722722E32740F008DFDD5 /* YomiPlayer */,
-				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
 				913722712E32740F008DFDD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -76,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				913722702E32740F008DFDD5 /* YomiPlayer.app */,
-				91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,31 +83,10 @@
 			);
 			name = YomiPlayer;
 			packageProductDependencies = (
+				91E58F252E4123D500872EAC /* DITranquillity */,
 			);
 			productName = YomiPlayer;
 			productReference = 913722702E32740F008DFDD5 /* YomiPlayer.app */;
-			productType = "com.apple.product-type.application";
-		};
-		91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 91F9E5592E33EE2400088CF1 /* Build configuration list for PBXNativeTarget "MacYomiPlayer" */;
-			buildPhases = (
-				91F9E54C2E33EE2200088CF1 /* Sources */,
-				91F9E54D2E33EE2200088CF1 /* Frameworks */,
-				91F9E54E2E33EE2200088CF1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
-			);
-			name = MacYomiPlayer;
-			packageProductDependencies = (
-			);
-			productName = MacYomiPlayer;
-			productReference = 91F9E5502E33EE2200088CF1 /* MacYomiPlayer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -141,9 +102,6 @@
 					9137226F2E32740F008DFDD5 = {
 						CreatedOnToolsVersion = 16.4;
 					};
-					91F9E54F2E33EE2200088CF1 = {
-						CreatedOnToolsVersion = 16.4;
-					};
 				};
 			};
 			buildConfigurationList = 9137226B2E32740F008DFDD5 /* Build configuration list for PBXProject "YomiPlayer" */;
@@ -155,13 +113,15 @@
 			);
 			mainGroup = 913722672E32740F008DFDD5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 913722712E32740F008DFDD5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				9137226F2E32740F008DFDD5 /* YomiPlayer */,
-				91F9E54F2E33EE2200088CF1 /* MacYomiPlayer */,
 			);
 		};
 /* End PBXProject section */
@@ -174,24 +134,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		91F9E54E2E33EE2200088CF1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9137226C2E32740F008DFDD5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		91F9E54C2E33EE2200088CF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -329,7 +275,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
+				DEVELOPMENT_TEAM = C3T24W9LXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomiPlayer/Info.plist;
@@ -364,7 +310,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
+				DEVELOPMENT_TEAM = C3T24W9LXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomiPlayer/Info.plist;
@@ -392,66 +338,6 @@
 			};
 			name = Release;
 		};
-		91F9E55A2E33EE2400088CF1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacYomiPlayer/MacYomiPlayer.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.MacYomiPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		91F9E55B2E33EE2400088CF1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MacYomiPlayer/MacYomiPlayer.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 15.5;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ybkuanysh.MacYomiPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -473,16 +359,26 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		91F9E5592E33EE2400088CF1 /* Build configuration list for PBXNativeTarget "MacYomiPlayer" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				91F9E55A2E33EE2400088CF1 /* Debug */,
-				91F9E55B2E33EE2400088CF1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivlevAstef/DITranquillity";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		91E58F252E4123D500872EAC /* DITranquillity */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */;
+			productName = DITranquillity;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 913722682E32740F008DFDD5 /* Project object */;
 }

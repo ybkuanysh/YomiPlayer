@@ -5,24 +5,28 @@
 //  Created by Kuanysh Yabekov on 24.07.2025.
 //
 
-import AVKit
 import SwiftUI
 import os
 
 private let logger = Logger.ui
 
 struct ContentView: View {
-    private let manager = FileManager.default
-    private var documentDir: URL? {
-        manager.urls(for: .documentDirectory, in: .userDomainMask).first
-    }
-    
+    @State var router: Router = .init(level: 0, identifierTab: nil)
+
     var body: some View {
-        NavigationStack {
-            VideoLibraryView(dto: .init(parent: documentDir!.path(), name: ""))
-                .navigationDestination(for: DirectoryListingDTO.self) {
-                    dto in VideoLibraryView(dto: dto)
+        TabView(selection: $router.selectedTab) {
+            Tab("Library", systemImage: "tray.full", value: TabDestination.library) {
+                NavigationContainer(parentRouter: router) {
+                    LibraryScreen()
                 }
+            }
+            Tab("Words", systemImage: "character.book.closed", value: TabDestination.words) {
+
+            }
+            Tab("Settings", systemImage: "gearshape", value: TabDestination.settings)
+            {
+
+            }
         }
     }
 }
