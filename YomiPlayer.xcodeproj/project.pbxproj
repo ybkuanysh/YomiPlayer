@@ -38,11 +38,6 @@
 			path = YomiPlayer;
 			sourceTree = "<group>";
 		};
-		91F9E5512E33EE2200088CF1 /* MacYomiPlayer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = MacYomiPlayer;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +62,6 @@
 			isa = PBXGroup;
 			children = (
 				913722722E32740F008DFDD5 /* YomiPlayer */,
-				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
 				913722712E32740F008DFDD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,9 +111,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				91F9E5512E33EE2200088CF1 /* MacYomiPlayer */,
 			);
 			name = MacYomiPlayer;
 			packageProductDependencies = (
@@ -329,7 +320,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
+				DEVELOPMENT_TEAM = C3T24W9LXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomiPlayer/Info.plist;
@@ -364,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZAC5WD43N;
+				DEVELOPMENT_TEAM = C3T24W9LXR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YomiPlayer/Info.plist;
