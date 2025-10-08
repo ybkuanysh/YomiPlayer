@@ -6,10 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		91E58F262E4123D500872EAC /* DITranquillity in Frameworks */ = {isa = PBXBuildFile; productRef = 91E58F252E4123D500872EAC /* DITranquillity */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		913722702E32740F008DFDD5 /* YomiPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YomiPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -40,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91E58F262E4123D500872EAC /* DITranquillity in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,7 +78,6 @@
 			);
 			name = YomiPlayer;
 			packageProductDependencies = (
-				91E58F252E4123D500872EAC /* DITranquillity */,
 			);
 			productName = YomiPlayer;
 			productReference = 913722702E32740F008DFDD5 /* YomiPlayer.app */;
@@ -114,7 +108,6 @@
 			mainGroup = 913722672E32740F008DFDD5;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 913722712E32740F008DFDD5 /* Products */;
@@ -360,25 +353,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivlevAstef/DITranquillity";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		91E58F252E4123D500872EAC /* DITranquillity */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 91E58F242E4123D500872EAC /* XCRemoteSwiftPackageReference "DITranquillity" */;
-			productName = DITranquillity;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 913722682E32740F008DFDD5 /* Project object */;
 }

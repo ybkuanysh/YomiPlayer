@@ -14,7 +14,6 @@ struct PlayerView: View {
     init(_ fileURL: URL) {
         self.fileURL = fileURL
         model = PlayerViewModel(fileURL: fileURL)
-        print("Selected Video file path: \(fileURL.path())")
     }
 
     var body: some View {
