@@ -19,8 +19,8 @@ import SwiftUI
 @ViewBuilder func view(for destination: FullScreenDestination) -> some View {
     Group {
         switch destination {
-        case let .player(videoURL):
-            PlayerView(videoURL)
+        case let .player(libraryItem):
+            PlayerView(libraryItem)
         }
     }
     .addDismissButton()
