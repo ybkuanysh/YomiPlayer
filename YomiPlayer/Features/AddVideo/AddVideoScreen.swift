@@ -8,22 +8,10 @@
 import SwiftUI
 
 struct AddVideoScreen: View {
-    @Environment(Router.self) private var router
-    @State var sheetPresented = false
-    @State var selectedURL: URL?
-
+    @StateObject private var viewModel = AddVideoVM()
+    
     var body: some View {
-        VStack {
-            Text(selectedURL?.path() ?? "Choose file")
-                .font(.title)
-            Button("Select File") {
-                sheetPresented = true
-            }
-            .buttonStyle(.bordered)
-            .sheet(isPresented: $sheetPresented) {
-                DocumentPicker(selectedURL: $selectedURL)
-            }
-        }
+        AddVideoView(viewModel: viewModel)
     }
 }
 

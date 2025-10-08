@@ -1,13 +1,4 @@
-//
-//  Destination.swift
-//  YomiPlayer
-//
-//  Created by Kuanysh Yabekov on 01.08.2025.
-//
-
 import Foundation
-
-// MARK: - Generic Destinations
 
 public enum Destination: Hashable {
     case tab(_ destination: TabDestination)
@@ -27,7 +18,9 @@ extension Destination: CustomStringConvertible {
     }
 }
 
-// MARK: - Tab Destinations
+public enum PushDestination: String, Hashable {
+    case addVideo
+}
 
 public enum TabDestination: String, Hashable {
     case library
@@ -35,41 +28,24 @@ public enum TabDestination: String, Hashable {
     case settings
 }
 
-// MARK: - Push Destinations
-
-public enum PushDestination: String, Hashable, Identifiable {
-    case libraryVideoItem
-
-    public var id: String {
-        switch self {
-        case .libraryVideoItem: ".libraryVideoItem"
-        }
-    }
-}
-
-// MARK: - Sheet Destinations
-
 public enum SheetDestination: String, Hashable, Identifiable {
+    case dummyDestination
+    
     public var id: String {
         switch self {
-        case .someDummyDest: ""
+        case .dummyDestination: ""
         }
     }
-
-    case someDummyDest
-
 }
-
-// MARK: - Full Screen Destinations
 
 public enum FullScreenDestination: Hashable {
-    case videoPlayer(videoURL: URL)
+    case player(videoURL: URL)
 }
 
 extension FullScreenDestination: CustomStringConvertible {
     public var description: String {
         switch self {
-        case let .videoPlayer(videoURL): ".videoPlayer(\(videoURL))"
+        case let .player(videoURL): ".player(\(videoURL))"
         }
     }
 }
@@ -77,7 +53,7 @@ extension FullScreenDestination: CustomStringConvertible {
 extension FullScreenDestination: Identifiable {
     public var id: String {
         switch self {
-        case let .videoPlayer(videoURL): videoURL.formatted()
+        case let .player(videoURL): videoURL.path()
         }
     }
 }

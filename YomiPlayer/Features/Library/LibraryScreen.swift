@@ -6,11 +6,9 @@
 //
 
 import SwiftUI
-import DITranquillity
 
 struct LibraryScreen: View {
-    
-    private let viewModel: LibraryViewModel = MainAppCoordinator.shared.container.resolve()
+    @StateObject var viewModel = LibraryViewModel()
     
     var body: some View {
         VStack {

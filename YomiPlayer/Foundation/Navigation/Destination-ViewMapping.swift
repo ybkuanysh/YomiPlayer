@@ -1,33 +1,27 @@
-//
-//  Destination-ViewMapping.swift
-//  YomiPlayer
-//
-//  Created by Kuanysh Yabekov on 01.08.2025.
-//
-
 import SwiftUI
 
 @ViewBuilder func view(for destination: PushDestination) -> some View {
-    Group {
-        switch destination {
-        case .libraryVideoItem:
-            AddVideoScreen()
-        }
+    switch destination {
+    case .addVideo:
+        AddVideoScreen()
     }
 }
 
 @ViewBuilder func view(for destination: SheetDestination) -> some View {
     Group {
+        switch destination {
+        case .dummyDestination:
+            VStack {}
+        }
     }
 }
 
 @ViewBuilder func view(for destination: FullScreenDestination) -> some View {
     Group {
         switch destination {
-        case let .videoPlayer(videoURL):
+        case let .player(videoURL):
             PlayerView(videoURL)
         }
     }
     .addDismissButton()
-    .presentationBackground(.black)
 }

@@ -8,10 +8,12 @@
 import SwiftData
 
 class PersistanceContextManager {
+    static let shared = PersistanceContextManager()
+    
     let container: ModelContainer
     let context: ModelContext
 
-    init() {
+    private init() {
         do {
             container = try ModelContainer(for: LibraryItem.self)
             context = ModelContext(container)
