@@ -18,7 +18,7 @@ struct LibraryView: View {
                     HStack {
                         Text(item.name)
                         Spacer()
-                        if item.subtitlesURL != nil {
+                        if item.subtitles != nil {
                             Image(systemName: "film.fill")
                                 .overlay(alignment: .bottomTrailing) {
                                     Image(systemName: "captions.bubble.fill")

@@ -17,43 +17,10 @@ class PlayerViewModel: ObservableObject {
 
     init(libraryItem: YomiLibraryItem) {
         self.libraryItem = libraryItem
-        
-        
-        
-        let manager = FileManager()
-        let bookmarkURL = URL.documentsDirectory.appendingPathComponent("bookmark.txt")
-        if !manager.fileExists(atPath: bookmarkURL.path()) {
-            guard libraryItem.videoURL.startAccessingSecurityScopedResource() else {
-                fatalError("Can't access video URL")
-            }
-            defer { libraryItem.videoURL.stopAccessingSecurityScopedResource() }
-            
-            do {
-                let bookmark = try libraryItem.videoURL.bookmarkData(
-                    options: .minimalBookmark,
-                    includingResourceValuesForKeys: nil,
-                    relativeTo: nil
-                )
-                try bookmark.write(to: bookmarkURL)
-            } catch {
-                fatalError("Can't create bookmark")
-            }
-        } else {
-            do {
-                let bookmarkData = try Data(contentsOf: bookmarkURL)
-                var isStale = false
-                let url = try URL(resolvingBookmarkData: bookmarkData, bookmarkDataIsStale: &isStale)
-                guard !isStale else { fatalError("Bookmark is stale") }
-                
-                libraryItem.videoURL = url
-            } catch {
-                fatalError("Can't read bookmark")
-            }
-        }
-        
-        data.player = AVPlayer(
-            playerItem: AVPlayerItem(url: libraryItem.videoURL)
-        )
+
+
+        let videoURL = getURL(from: libraryItem.video)
+        data.player = AVPlayer(playerItem: AVPlayerItem(url: videoURL))
         data.currentTime = data.player.currentTime()
         data.duration = CMTime.zero
         addPeriodicTimeObserver()
@@ -62,6 +29,20 @@ class PlayerViewModel: ObservableObject {
     func seek(to seconds: Double) {
         let time = CMTime(seconds: seconds, preferredTimescale: 600)
         data.player.seek(to: time)
+    }
+
+    private func getURL(from bookmark: Bookmark) -> URL {
+        do {
+            var isStale = false
+            let url = try URL(
+                resolvingBookmarkData: bookmark.data,
+                bookmarkDataIsStale: &isStale
+            )
+            guard !isStale else { fatalError("Bookmark is stale") }
+            return url
+        } catch {
+            fatalError("Can't read bookmark")
+        }
     }
 
     private func addPeriodicTimeObserver() {
@@ -111,16 +92,11 @@ extension PlayerViewModel: PlayerActions {
     }
 
     func parseSubtitles() {
-        guard let fileURL = libraryItem.subtitlesURL else { return }
-
+        let fileURL = getURL(from: libraryItem.subtitles)
         let parser = SRTParser()
         let subtitlesRaw: String
         let srt: SRT
-
-//        guard fileURL.startAccessingSecurityScopedResource() else {
-//            fatalError("Can't access subtitles URL")
-//        }
-//        defer { fileURL.stopAccessingSecurityScopedResource() }
+        
         do {
             subtitlesRaw = try String(contentsOf: fileURL, encoding: .utf8)
             srt = try parser.parse(subtitlesRaw)

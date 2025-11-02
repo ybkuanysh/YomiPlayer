@@ -9,7 +9,7 @@ public final class LibItemCreateViewModel: ObservableObject {
     var router: Router?
     private var subtitles: URL?
     private var video: URL?
-    
+
     @Published var data = LibItemCreateData()
 
     init(dataSource: YomiLibraryDataSource) {
@@ -23,7 +23,7 @@ extension LibItemCreateViewModel: LibItemCreateActions {
         data.fileTypeToSelect = type
         data.docPickerPresented = true
     }
-    
+
     func handleFileSelection(_ result: Result<URL, any Error>) {
         switch result {
         case .success(let url):
@@ -41,12 +41,31 @@ extension LibItemCreateViewModel: LibItemCreateActions {
         }
     }
 
+    private func getSecurityScoped(resource url: URL) -> Bookmark {
+        guard url.startAccessingSecurityScopedResource() else {
+            fatalError("Can't access video URL")
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        do {
+            let data = try url.bookmarkData(
+                options: .minimalBookmark,
+                includingResourceValuesForKeys: nil,
+                relativeTo: nil
+            )
+            return Bookmark(data)
+        } catch {
+            fatalError("Can't create bookmark")
+        }
+    }
+
     func saveAndContinue() {
-        guard let url = video else { return }
+        guard let selectedVideo = video else { return }
+        guard let selectedSubs = subtitles else { return }
         let item = YomiLibraryItem(
             name: data.videoName!,
-            videoURL: url,
-            subtitlesURL: subtitles
+            video: getSecurityScoped(resource: selectedVideo),
+            subtitles: getSecurityScoped(resource: selectedSubs)
         )
         do { try dataSource.insert(item) } catch {
             fatalError("Failed to insert item: \(error)")

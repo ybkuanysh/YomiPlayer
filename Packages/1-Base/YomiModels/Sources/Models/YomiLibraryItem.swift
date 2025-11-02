@@ -9,20 +9,52 @@ import Foundation
 import SwiftData
 import PreviewData
 
+public struct Bookmark: Codable {
+    public var data: Data
+    
+    public init(_ data: Data) {
+        self.data = data
+    }
+    
+    public static func previewVideo() -> Bookmark {
+        return .init(createSecurityScopedResource(with: .previewVideo()!))
+    }
+    public static func previewSubtitles() -> Bookmark {
+        return .init(createSecurityScopedResource(with: .previewSubtitles()!))
+    }
+    
+    private static func createSecurityScopedResource(with url: URL) -> Data {
+        guard url.startAccessingSecurityScopedResource() else {
+            fatalError("Can't access video URL")
+        }
+        defer { url.stopAccessingSecurityScopedResource() }
+
+        do {
+            return try url.bookmarkData(
+                options: .minimalBookmark,
+                includingResourceValuesForKeys: nil,
+                relativeTo: nil
+            )
+        } catch {
+            fatalError("Can't create bookmark")
+        }
+    }
+}
+
 @Model
 public class YomiLibraryItem: Identifiable, Hashable {
     @Attribute(.unique)
     public var id: UUID = UUID()
     public var name: String
-    public var videoURL: URL
-    public var subtitlesURL: URL?
+    public var video: Bookmark
+    public var subtitles: Bookmark
     public var createdAt: Date = Date()
     public var updatedAt: Date = Date()
 
-    public init(name: String, videoURL: URL, subtitlesURL: URL?) {
+    public init(name: String, video: Bookmark, subtitles: Bookmark) {
         self.name = name
-        self.videoURL = videoURL
-        self.subtitlesURL = subtitlesURL
+        self.video = video
+        self.subtitles = subtitles
     }
 
     public static func == (lhs: YomiLibraryItem, rhs: YomiLibraryItem) -> Bool {
@@ -38,8 +70,8 @@ extension YomiLibraryItem {
     public static func previewValue() -> YomiLibraryItem {
         return .init(
             name: "No title - Reol",
-            videoURL: .previewVideo()!,
-            subtitlesURL: .previewSubtitles()!
+            video: .previewVideo(),
+            subtitles: .previewSubtitles()
         )
     }
 }
