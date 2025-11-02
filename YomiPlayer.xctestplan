@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "7657EB32-9FF5-4529-830C-4E0B668DE77B",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:YomiPlayer.xcodeproj",
+        "identifier" : "91B284672EAFCB69004975F5",
+        "name" : "YomiPlayerTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Packages\/2-Infrastructure\/YomiDatabase",
+        "identifier" : "YomiDatabaseTests",
+        "name" : "YomiDatabaseTests"
+      }
+    }
+  ],
+  "version" : 1
+}
