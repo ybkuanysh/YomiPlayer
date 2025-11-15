@@ -44,4 +44,6 @@ protocol PlayerActions: AnyObject {
     func togglePlay()
     func seek(to time: Double)
     func parseSubtitles()
+    func nextSentence()
+    func previousSentence()
 }

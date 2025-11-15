@@ -18,7 +18,6 @@ class PlayerViewModel: ObservableObject {
     init(libraryItem: YomiLibraryItem) {
         self.libraryItem = libraryItem
 
-
         let videoURL = getURL(from: libraryItem.video)
         data.player = AVPlayer(playerItem: AVPlayerItem(url: videoURL))
         data.currentTime = data.player.currentTime()
@@ -81,6 +80,37 @@ class PlayerViewModel: ObservableObject {
 }
 
 extension PlayerViewModel: PlayerActions {
+    func nextSentence() {
+        guard let nextSubtitle = getNextSubtitle(after: data.currentTime) else {
+            return
+        }
+        printCurrentSubtitle(nextSubtitle)
+        let timecode = nextSubtitle.start.convertScale(
+            600,
+            method: .roundTowardZero
+        )
+        data.player.seek(
+            to: timecode,
+            toleranceBefore: .zero,
+            toleranceAfter: .init(seconds: 0.5, preferredTimescale: 600)
+        )
+    }
+
+    func previousSentence() {
+        guard let prevSubtitle = getPreviousSubtitle(before: data.currentTime)
+        else { return }
+        printCurrentSubtitle(prevSubtitle)
+        let timecode = prevSubtitle.start.convertScale(
+            600,
+            method: .roundTowardZero
+        )
+        data.player.seek(
+            to: timecode,
+            toleranceBefore: .zero,
+            toleranceAfter: .init(seconds: 0.5, preferredTimescale: 600)
+        )
+    }
+
     func togglePlay() {
         data.isPlaying.toggle()
         if data.isPlaying {
@@ -96,7 +126,7 @@ extension PlayerViewModel: PlayerActions {
         let parser = SRTParser()
         let subtitlesRaw: String
         let srt: SRT
-        
+
         do {
             subtitlesRaw = try String(contentsOf: fileURL, encoding: .utf8)
             srt = try parser.parse(subtitlesRaw)
@@ -132,5 +162,33 @@ extension PlayerViewModel: PlayerActions {
             data.subtitles.data.append(newElement)
         }
 
+    }
+}
+
+extension PlayerViewModel {
+    private func getNextSubtitle(after time: CMTime) -> Subtitle? {
+        let curSubtitleIdx = data.subtitles.data.firstIndex { subtitle in
+            subtitle.start.seconds..<subtitle.end.seconds ~= time.seconds
+        }
+        guard let curSubtitleIdx else { return nil }
+        let nextIdx = curSubtitleIdx + 1
+        if nextIdx >= data.subtitles.data.count { return nil }
+        return data.subtitles.data[nextIdx]
+    }
+
+    private func printCurrentSubtitle(_ subtitle: Subtitle) {
+        print(
+            "\(subtitle.start.seconds) --> \(subtitle.end.seconds): \(subtitle.text)"
+        )
+    }
+
+    private func getPreviousSubtitle(before time: CMTime) -> Subtitle? {
+        let curSubtitleIdx = data.subtitles.data.firstIndex { subtitle in
+            subtitle.start.seconds..<subtitle.end.seconds ~= time.seconds
+        }
+        guard let curSubtitleIdx else { return nil }
+        let prevIdx = curSubtitleIdx - 1
+        if prevIdx < 0 { return nil }
+        return data.subtitles.data[prevIdx]
     }
 }
